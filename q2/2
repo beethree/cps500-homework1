@@ -1,0 +1,35 @@
+//Russell, Bill
+//
+
+#include <stdio.h>
+
+int main(int argc, char *argv[])
+{
+   printf("number of command line arguments entered: %d \n", argc);
+   printf("%s\n",argv[argc]);
+   int input = *argv[argc] - '0';
+   printf("The passed in argument is: %d \n", input); 
+//   for (int i = 0; i <= argc; i++)
+//   {
+//      printf("%s\n",argv[i]);
+//      int input = *argv[i] - '0';
+//      printf("The passed in argument is: %d \n", input); 
+//
+//   }
+
+//   for (int i = 0; i <= argc; i++)
+//   {
+//   if (i % 2 == 0)
+//	   {
+//	      printf("*");
+//	      printf("\n");
+//	   }
+//	   else
+//	   {
+//              printf("+");
+//    	      printf("\n");
+//         }
+//
+//   }
+
+}
