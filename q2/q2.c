@@ -1,5 +1,6 @@
-//Russell, Bill
-//
+//CPS 500
+//Bill Russell
+//Homework 1, Question 2
 
 #include <stdio.h>
 
