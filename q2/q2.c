@@ -1,44 +1,33 @@
-//CPS 500
-//Bill Russell
-//Homework 1, Question 2
-
 #include <stdio.h>
 
 int main(int argc, char *argv[])
 {
-   // TODO: Debug Remove
-   printf("number of command line arguments entered: %d \n", argc);
-   // TODO: Debug Remove
-   //printf("%s\n",argv[argc]);
-
-   // cast the char value in the argv array to an int for processing
+   // cast the char value to an int for processing
    int input = *argv[argc-1] - '0';
-   
-   // TODO: Debug Remove
-   printf("The passed in argument is: %d \n", input); 
 
-   // now print the christmas tree - start i with 1 to prevent the i=0 non-print situation
-   for (int i = 1; i <= input; i++)
+   for (int row = 1; row <= input; row++)
    {
-	   if (i == 1)
-	   {
-		   printf("+\n");
-	   }
-	   else
-	   {
-		   for (int j = 1; j <= input; j++)
-		   {
-			   if (j % input == 0)
-			   {
-				   printf("+");
-			   }
-			   else
-			   {
-				   printf("*");
-			   }
-		   }
-		   printf("\n");
-	   }
+      int counter =0;
 
+      // put in appropriate spaces so "+" appears in the middle
+      for (int blank_space = 1; blank_space <= (input-row); blank_space++)
+      {
+	 // print a blank space to fill necessary slots
+	 printf(" "); 
+      }
+      // now print '*' or '+' as appropriate
+      for (int column = 1; column <= (2 * row-1); column ++)
+      {
+	 if (column == row)
+	 {
+	    printf("+");
+	 }
+	 else
+	 {
+	    printf("*");
+	 }
+      }
+      printf("\n");
    }
+   return 0;
 }
