@@ -18,11 +18,18 @@ void arrayAddition(int A[], int B[], int N, int O[])
 int main(int argc, char *argv[])
 {
    int input_count = argc;
-   printf("input count = %d \n", argc);
    int input_counter;
 
-   int A[input_count -1];
-   int B[input_count -1];
+   //dynamically allocate size of arrays using malloc
+   int* A;
+   int* B;
+
+   A = (int*)malloc(((input_count/2) -1) * sizeof(int));
+   B = (int*)malloc(((input_count/2) -1) * sizeof(int));
+
+   // store the "size" of the arrays
+   int N = 0; // size of array A
+   int Z = 0; // size of array B
 
    // fill array A from the command line 
    for (int i = 0; i < ((input_count/2)); i++)
@@ -31,15 +38,13 @@ int main(int argc, char *argv[])
 
       if (*argv[i+1] == '+')
       {
-	 printf("\n+ reached! \n");
 	 input_counter += i;
-	 printf("input counter %d : \n", input_counter); 
+	 N = input_counter;
 	 break;
       }
       else
       {
 	 A[i] = atoi(argv[i+1]);
-	 printf("%d ", A[i]);
 	 input_counter += i;
       }
    }
@@ -48,22 +53,15 @@ int main(int argc, char *argv[])
    // note that outer for loop does not increment until inside inner for loop
    for (int j = input_counter + 2; j < input_count;)
    {
-      //printf("j = %d \n", j);
       for (int k = 0; k < ((input_count/2)-1); k++)
       {
          B[k] = atoi(argv[j]);
-	 j++; // advance j after reading in to array B
-         printf("%d ", B[k]);
+         j++; // advance j after reading in to array B
+	 Z = k +1;
       }
    }
 
-   int N = ((sizeof(A) / sizeof(A[0]))/2);
-   int Z = ((sizeof(B) / sizeof(B[0]))/2);
-
    printf("\n\n");
-
-   printf("The size of Array A = %d \n", N);
-   printf("The size of Array B = %d \n", Z);
 
    if (N == Z)
    {
